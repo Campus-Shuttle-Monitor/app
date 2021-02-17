@@ -1,6 +1,6 @@
 # App
 
-# Getting started developing
+# Development Enviroment Setup
 
 Download Nodejs: https://nodejs.org/en/
 Install expo using npm: https://docs.expo.io/workflow/expo-cli/
