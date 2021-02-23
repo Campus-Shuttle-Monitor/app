@@ -1,4 +1,4 @@
-# App
+how to open a react native project in android studio# App
 
 # Development Enviroment Setup
 
