@@ -1,16 +1,14 @@
 import React from 'react'
 import { SafeAreaView } from 'react-navigation'
 import { Text, View, ImageBackground, StyleSheet, Dimensions } from 'react-native'
-import Map from './Map'
+import Map from '../components/Map'
 import mapScreenStyles from '../styles/MapScreenStyles'
 
-const image = '../assets/AppBackground.png'
-
-const MapScreen = () => {
+export const MapScreen = () => {
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
       <View style={ mapScreenStyles.container }>
-        <ImageBackground source={require('../assets/AppBackground.png')} style={mapScreenStyles.image}>
+        <ImageBackground source={require('../assets/images/AppBackground.png')} style={mapScreenStyles.image}>
           <View style={ mapScreenStyles.mapInfo }>
             <View style={ mapScreenStyles.operationalHours }>
               <Text style={{ fontSize: 20, alignSelf: 'flex-start', color: 'grey'}}>Operational Hours:</Text>
@@ -32,5 +30,3 @@ const MapScreen = () => {
     </SafeAreaView>
   )
 }
-
-export default MapScreen
