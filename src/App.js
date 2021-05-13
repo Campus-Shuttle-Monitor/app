@@ -21,6 +21,14 @@ let width = getWindowDimensions().width
 let height = getWindowDimensions().height
 
 const pathCoordinates = [
+  { lat:37.958898,  lng: -91.779952},
+  { lat:37.959268,  lng: -91.779986},
+  { lat:37.959331,  lng: -91.779963},
+  { lat:37.959373,  lng: -91.779868},
+  { lat:37.959350,  lng: -91.779074},
+  { lat:37.959242,  lng: -91.779069},
+  { lat:37.959083,  lng: -91.779101},
+  { lat:37.958946,  lng: -91.779283},
   { lat:37.958900,  lng:-91.779962 },
   { lat:37.958788, lng:-91.780284 },
   { lat:37.958725, lng:-91.782458 },
@@ -35,13 +43,16 @@ const pathCoordinates = [
   { lat:37.953716,  lng: -91.775861},
   { lat:37.953724,  lng: -91.775369},
   { lat:37.954553,  lng: -91.775331},
+  { lat:37.954558,  lng: -91.775540},
+  { lat:37.953735,  lng: -91.775561},
 
 ];
 
 const options = {
+   //styles: mapStyles,
   styles: mapStyles,
   disableDefaultUI: true,
-  draggable: false
+  draggable: true
 }
 
 const mapContainerStyle = {
@@ -65,6 +76,7 @@ function getZoom (width, height) {
 
 var i = 0
 var zoom = getZoom(width, height)
+
 const useFetch = url => {
   
   const [data, setData] = useState(null);
@@ -92,7 +104,8 @@ const useFetch = url => {
 export default function App() {
   const {isLoaded, loadError} = useLoadScript({ googleMapsApiKey: "AIzaSyBNDR5mOl6MbebASdfhTR4eBqwv7fySJEA" })
   
-  const data = useFetch('https://realtime-location-gateway-waz932k.uc.gateway.dev/shuttle/1')
+  const data = useFetch('https://realtime-location-gateway-waz932k.uc.gateway.dev/shuttle/IO92')
+
   if (loadError) return "Error Loading maps";
   if (!isLoaded) return "Loading Maps";
   if(!data){
@@ -148,12 +161,13 @@ export default function App() {
               }]
             }}
           />
-          <Marker 
+          <Marker
+            position={{  
+              lat: parseFloat(data.latitude),
+              lng: parseFloat(data.longitude),
+            }}
+          />
 
-          position={{
-            lat: data.latitude,
-            lng: data.longitude,
-          }} />
         </GoogleMap>
       </Box>
     </div>
